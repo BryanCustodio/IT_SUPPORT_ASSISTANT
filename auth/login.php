@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($res->num_rows > 0) {
         $_SESSION['it_user'] = $res->fetch_assoc();
-        header("Location: ../it_support/dashboard.php");
+        header("Location: ../it_support/dashbourd.php");
+        exit; // Ensure to exit after redirection
     } else {
         $error = "Invalid credentials.";
     }

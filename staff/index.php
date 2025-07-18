@@ -18,6 +18,7 @@
       <option value="IT">IT</option>
       <option value="Finance">Finance</option>
       <option value="Registrar">Registrar</option>
+      <option value="B2B">B2B</option>
     </select><br>
 
     <label>Issue (optional):</label>
