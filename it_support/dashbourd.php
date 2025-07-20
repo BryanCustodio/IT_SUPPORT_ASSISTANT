@@ -219,7 +219,7 @@ include '../includes/db.php';
       });
 
       fetchRequests();
-      setInterval(fetchRequests, 5000);
+      setInterval(fetchRequests, 1000);
     });
   </script>
 </body>
