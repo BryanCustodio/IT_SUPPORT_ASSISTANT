@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if (!isset($_SESSION['it_user'])) {
-  header("Location: ../auth/login.php");
+  header("Location: ../index.php");
   exit;
 }
 
@@ -88,6 +88,24 @@ include '../includes/db.php';
       background-color: #0055a5;
     }
 
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-block;
+      color: #fff;
+    }
+
+    .status-pending {
+      background-color: #f1c40f;
+      color: #000;
+    }
+
+    .status-done {
+      background-color: #2ecc71;
+    }
+
     .marquee-container {
       position: fixed;
       bottom: 0;
@@ -126,7 +144,7 @@ include '../includes/db.php';
     <h2>🖥️ IT Support Dashboard</h2>
     <div>
       Welcome, <?= $_SESSION['it_user']['full_name']; ?> |
-      <a href="../auth/logout.php">Logout</a>
+      <a href="../logout.php">Logout</a>
     </div>
   </div>
 
@@ -186,20 +204,28 @@ include '../includes/db.php';
             ]).draw();
           } else {
             requests.forEach(row => {
-              table.row.add([
-                row.id,
-                row.pc_number,
-                row.department,
-                row.issue,
-                row.status === 'Done' ? 'Done' : 'Pending',
-                row.requested_at,
-                row.status === 'Done' ? '✔️' : `
+              const statusHTML = row.status === 'Done'
+                ? `<span class="status-badge status-done">Done</span>`
+                : `<span class="status-badge status-pending">Pending</span>`;
+
+              const actionHTML = row.status === 'Done'
+                ? '✔️'
+                : `
                   <form action='./update_status.php' method='POST'>
                     <input type='hidden' name='id' value='${row.id}'>
                     <input type='hidden' name='status' value='Done'>
                     <button type='submit'>Done</button>
                   </form>
-                `
+                `;
+
+              table.row.add([
+                row.id,
+                row.pc_number,
+                row.department,
+                row.issue,
+                statusHTML,
+                row.requested_at,
+                actionHTML
               ]).draw(false);
             });
           }
@@ -219,7 +245,7 @@ include '../includes/db.php';
       });
 
       fetchRequests();
-      setInterval(fetchRequests, 1000);
+      setInterval(fetchRequests, 5000);
     });
   </script>
 </body>
