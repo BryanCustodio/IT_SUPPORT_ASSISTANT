@@ -10,5 +10,5 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $pc_number, $department, $issue);
 $stmt->execute();
 
-echo "<script>alert('Request sent successfully!'); window.location.href='index.php';</script>";
+echo "<script>alert('Request sent successfully!'); window.location.href='../index.php';</script>";
 ?>

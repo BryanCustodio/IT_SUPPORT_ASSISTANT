@@ -21,7 +21,7 @@ session_start();
 include '../includes/db.php';
 
 if (!isset($_SESSION['it_user'])) {
-    header("Location: ../auth/login.php");
+    header("Location: ../index.php");
     exit;
 }
 
