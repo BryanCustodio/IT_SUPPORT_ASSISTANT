@@ -224,11 +224,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'])) {
         <label for="department">🏢 Department</label>
         <select name="department" id="department" required>
           <option value="">-- Select Department --</option>
-          <option value="HR">HR</option>
-          <option value="IT">IT</option>
-          <option value="Finance">Finance</option>
-          <option value="Registrar">Registrar</option>
           <option value="B2B">B2B</option>
+          <option value="PACKING AREA/HEBE">PACKING AREA/HEBE</option>
+          <option value="INBOUND">INBOUND</option>
+          <option value="OUTBOUND">OUTBOUND</option>
+          <option value="CUSTODIAN">CUSTODIAN</option>
         </select>
 
         <label for="issue">📝 Issue Description (optional)</label>
