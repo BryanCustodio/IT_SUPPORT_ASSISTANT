@@ -75,10 +75,6 @@ include '../includes/db.php';
       align-items: center;
     }
 
-    select[name="status"] {
-      padding: 3px 5px;
-    }
-
     button[type="submit"] {
       padding: 4px 8px;
       background: #003366;
@@ -195,18 +191,14 @@ include '../includes/db.php';
                 row.pc_number,
                 row.department,
                 row.issue,
-                row.status,
+                row.status === 'Done' ? 'Done' : 'Pending',
                 row.requested_at,
-                `
-                <form action='update_status.php' method='POST'>
-                  <input type='hidden' name='id' value='${row.id}'>
-                  <select name='status'>
-                    <option value='Pending' ${row.status === 'Pending' ? 'selected' : ''}>Pending</option>
-                    <option value='In Progress' ${row.status === 'In Progress' ? 'selected' : ''}>In Progress</option>
-                    <option value='Resolved' ${row.status === 'Resolved' ? 'selected' : ''}>Resolved</option>
-                  </select>
-                  <button type='submit'>Update</button>
-                </form>
+                row.status === 'Done' ? '✔️' : `
+                  <form action='./update_status.php' method='POST'>
+                    <input type='hidden' name='id' value='${row.id}'>
+                    <input type='hidden' name='status' value='Done'>
+                    <button type='submit'>Done</button>
+                  </form>
                 `
               ]).draw(false);
             });
