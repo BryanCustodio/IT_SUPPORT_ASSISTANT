@@ -172,7 +172,7 @@ include '../includes/db.php';
 
   <!-- 🔁 Marquee Text -->
   <div class="marquee-container">
-    <div class="marquee">🗣️ Hindi ka na mapapaubos kakasigaw dahil may system na!</div>
+    <div class="marquee">🗣️ Hindi ka na mapapaos kakasigaw dahil may system na!</div>
   </div>
 
   <script>
