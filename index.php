@@ -228,6 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'])) {
           <option value="PACKING AREA/HEBE">PACKING AREA/HEBE</option>
           <option value="INBOUND">INBOUND</option>
           <option value="OUTBOUND">OUTBOUND</option>
+          <option value="Hand-over">Hand-over</option>
           <option value="RTS">RTS</option>
           <option value="QC">QC</option>
           <option value="CUSTODIAN">CUSTODIAN</option>
@@ -245,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'])) {
 
   <div class="marquee-container">
     <div class="marquee">
-      🗣️ Hindi ka na mapapaos kakasigaw dahil may system na!
+      🗣️ Hindi ka na mapapaos kakasigaw dahil may system na! -IT Department
     </div>
 </div>
 
